@@ -1,19 +1,18 @@
 import java.util.Scanner;
-import java.util.ArrayList;
 
 public class HomeScreen {
     static Scanner myScanner = new Scanner(System.in);
 
     public static void main(String[] args) {
 
-        AddSandwich addSandwich = new AddSandwich();
-        String size = addSandwich.getSize();
+        Sandwich sandwich = new Sandwich(Size.MEDIUM, "white");
+        Size size = sandwich.getSize();
         if (size != null) {
-            double price;
+            double breadPrice;
             switch (size) { // use switch or if statement
-                case "Small" -> price = 5.50;
-                case "Medium" -> price = 7;
-                case "Large" -> price = 8.50;
+                case SMALL -> breadPrice = 5.50;
+                case MEDIUM -> breadPrice = 7;
+                case LARGE -> breadPrice = 8.50;
 
                 default -> {
                     System.out.println("Try again bud ");
@@ -21,7 +20,7 @@ public class HomeScreen {
                 }
 
             }
-            System.out.println(size + price);
+            System.out.println(size + " -" + breadPrice);
 
             while (true) {
 
@@ -45,6 +44,35 @@ public class HomeScreen {
         }
 
     }
+
+
+
+    public static String AddDrink(Scanner myScanner) {
+        System.out.println("\n==Wash it down ==");
+        System.out.println("1) Carbonated sugar water");
+        System.out.println("2)Warm milk");
+        System.out.println("3) Minty orange juice");
+        System.out.println("4) room temp Tea");
+        System.out.println("5) H20");
+        System.out.println("the H20 is faucet water so... choose wisely: ");
+
+        int drinkChoice = myScanner.nextInt();
+        myScanner.nextLine();
+        String pick = "idk";
+        if (drinkChoice == 1)
+            pick = "Carbonated sugar water";
+        else if (drinkChoice == 2)
+            pick = "Warm milk";
+        else if (drinkChoice == 3)
+            pick = "Minty orange juice";
+        else if (drinkChoice == 4)
+            pick = "room temp tea";
+        else if (drinkChoice == 5)
+            pick = "H20";
+        return pick;
+
+    }
+
 }
 
 

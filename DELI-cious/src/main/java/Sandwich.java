@@ -1,0 +1,100 @@
+import java.util.ArrayList;
+
+public class Sandwich {
+    private Size size;
+    private String bread;
+    private boolean toasted;
+    private ArrayList<String> meats = new ArrayList<>();
+    private ArrayList<String> cheeses = new ArrayList<>();
+    private ArrayList<String> veggies = new ArrayList<>();
+    private ArrayList<String> sauces = new ArrayList<>();
+
+    public Sandwich(Size size, String bread) {
+        this.size = size;
+        this.bread = bread;
+    }
+
+    private void addMeat(String meat) {
+        meats.add(meat);
+    }
+
+    private void addCheese(String cheese) {
+        cheeses.add(cheese);
+    }
+    private void addVeggies(String veggie){
+        veggies.add(veggie);
+    }
+    private void addSauces(String sauce){
+        sauces.add(sauce);
+    }
+
+
+    public boolean isToasted() {
+        return toasted;
+    }
+
+    public void setToasted(boolean toasted) {
+        this.toasted = toasted;
+    }
+
+    public Size getSize() {
+        return size;
+    }
+
+    public void setSize(Size size) {
+        this.size = size;
+    }
+
+    public String getBread() {
+        return bread;
+    }
+
+    public void setBread(String bread) {
+        this.bread = bread;
+    }
+
+
+    public double getMeatPrice() {
+        double pricerPerMeat = 0;
+        switch (size) {
+            case SMALL -> pricerPerMeat = 1.00;
+            case MEDIUM -> pricerPerMeat = 2.00;
+            case LARGE -> pricerPerMeat = 3.00;
+        }
+        return meats.size() + pricerPerMeat;
+    }
+
+    public double getCheesePrice() {
+        double pricePerCheese = 0;
+        switch (size) {
+            case SMALL -> pricePerCheese = .75;
+            case MEDIUM -> pricePerCheese = 1.50;
+            case LARGE -> pricePerCheese = 2.25;
+        }
+        return cheeses.size() + pricePerCheese;
+    }
+        public double breadPrice(){
+
+        double priceOfBread = 0;
+            switch (size) { // use switch or if statement
+                case SMALL -> priceOfBread = 5.50;
+                case MEDIUM -> priceOfBread = 7;
+                case LARGE -> priceOfBread = 8.50;
+
+            }    return priceOfBread;
+
+
+            }
+
+
+    public double getTotalSandwichPrice(){
+        return getCheesePrice() + getMeatPrice() + breadPrice();
+    }
+    @Override
+    public String toString() {
+        return size + " "+ bread + "Sandwich with " + meats + ", " + cheeses + ", " + veggies +", " + sauces ;
+
+
+    }
+
+}
