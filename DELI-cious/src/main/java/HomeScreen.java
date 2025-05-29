@@ -128,7 +128,7 @@ public class HomeScreen {
 
         } // Stay inside this bracket
         sandwichOrder.add(sandwich);
-        System.out.println(sandwich.);
+//        System.out.println(sandwich.);
     }
 
     public static void addDrink() {
