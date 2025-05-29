@@ -2,6 +2,8 @@ import java.util.ArrayList;
 
 public class Order {
     private ArrayList<Drink> drinks = new ArrayList<>();
+    private ArrayList<Sandwich> sandwiches = new ArrayList<>();
+    private ArrayList<Chips> chips = new ArrayList<>();
 
     public void addDrink(Drink drink) {
         drinks.add(drink);
@@ -14,6 +16,11 @@ public class Order {
             System.out.println(d.toString() + " price: " + price);
         }
         return 0;
+    }
+
+    public void addSandwich(Sandwich sandwich) {
+        sandwiches.add(sandwich);
+
     }
 
 

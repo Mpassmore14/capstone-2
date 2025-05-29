@@ -9,15 +9,24 @@ public class Drink {
         this.size = size;
     }
 
+    public Drink() {
+    }
+
     public String getDrinkName() {
         return drinkName;
     }
 
+    public void setDrinkName(String drinkName) {
+        this.drinkName = drinkName;
+    }
 
     public Size getSize() {
         return size;
     }
 
+    public void setSize(Size size) {
+        this.size = size;
+    }
 
     @Override
     public String toString() {
@@ -27,14 +36,19 @@ public class Drink {
     }
 
     public double getPrice() {
-            for (Drink d: ){
-                double price = d.getPrice();
-                System.out.println(d.toString() + " price: " + price);
-            }
-        return 0;
+
+        double price = 0;
+        if (this.getSize().toString().equalsIgnoreCase("Small")) {
+            price = 2.00;
+        } else if (this.getSize().toString().equalsIgnoreCase("Medium")) {
+            price = 2.50;
+        } else if (this.getSize().toString().equalsIgnoreCase("Large")) {
+            price = 3.00;
+        }
+        return price;
+
 
     }
-
 
 
 }

@@ -5,6 +5,9 @@ public class Main {
         order.addDrink(drink);
         drink = new Drink("Coke",Size.MEDIUM);
         order.addDrink(drink);
+        Sandwich sandwich = new Sandwich();
+        order.addSandwich(sandwich);
+
 
         double price = drink.getPrice();
         System.out.println("Second drink price: " + price);
