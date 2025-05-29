@@ -4,10 +4,12 @@ public class Sandwich {
     private Size size;
     private String bread;
     private boolean toasted;
-    private ArrayList<String> meats = new ArrayList<>();
-    private ArrayList<String> cheeses = new ArrayList<>();
-    private ArrayList<String> veggies = new ArrayList<>();
-    private ArrayList<String> sauces = new ArrayList<>();
+    public ArrayList<String> meats = new ArrayList<>();
+    public ArrayList<String> cheeses = new ArrayList<>();
+    public ArrayList<String> veggies = new ArrayList<>();
+    public ArrayList<String> sauces = new ArrayList<>();
+
+
 
     public Sandwich(Size size, String bread) {
         this.size = size;

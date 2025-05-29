@@ -13,24 +13,29 @@ public class Drink {
         return drinkName;
     }
 
-    public void setDrinkName(String drinkName) {
-        this.drinkName = drinkName;
-    }
 
     public Size getSize() {
         return size;
     }
 
-    public void setSize(Size size) {
-        this.size = size;
-    }
 
     @Override
     public String toString() {
-        return "Choice of beverage: " + drinkName +" -"+ size;
+        return "Choice of beverage: " + drinkName + " -" + size;
 
 
     }
+
+    public double getPrice() {
+            for (Drink d: ){
+                double price = d.getPrice();
+                System.out.println(d.toString() + " price: " + price);
+            }
+        return 0;
+
+    }
+
+
 
 }
 

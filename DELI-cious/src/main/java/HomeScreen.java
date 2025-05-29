@@ -1,9 +1,49 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class HomeScreen {
     static Scanner myScanner = new Scanner(System.in);
 
     public static void main(String[] args) {
+        ArrayList<String> meats = new ArrayList<>();
+        meats.add("Steak");
+        meats.add("Ham");
+        meats.add("Salami");
+        meats.add("Roast Beef");
+        meats.add("Chicken");
+        meats.add("Bacon");
+        System.out.println("Which meat would you like?: ");
+
+        ArrayList<String> cheeses = new ArrayList<>();
+        cheeses.add("American");
+        cheeses.add("Provolone");
+        cheeses.add("Cheddar");
+        cheeses.add("Swiss");
+        System.out.println("Pick a cheese: ");
+
+        ArrayList<String> veggies = new ArrayList<>();
+        veggies.add("Lettuce");
+        veggies.add("Peppers");
+        veggies.add("Onion");
+        veggies.add("Tomatoes");
+        veggies.add("Jalapenos");
+        veggies.add("Cucumbers");
+        veggies.add("Pickles");
+        veggies.add("Guac");
+        veggies.add("Mushrooms");
+        System.out.println("Any Veggies?: ");
+
+        ArrayList<String> sauces = new ArrayList<>();
+        sauces.add("Mayo");
+        sauces.add("Mustard");
+        sauces.add("Ketchup");
+        sauces.add("Ranch");
+        sauces.add("thousand islands");
+        sauces.add("Vinaigrette");
+        System.out.println("Any Sauces?: ");
+        Order order = new Order();
+        Drink drink = new Drink("H20",Size.MEDIUM);
+//        order
 
         Sandwich sandwich = new Sandwich(Size.MEDIUM, "white");
         Size size = sandwich.getSize();
@@ -32,7 +72,7 @@ public class HomeScreen {
                 int choice = myScanner.nextInt();
 
                 if (choice == 1) {
-                    System.out.println("Lets get started..");//OrderScreen(myScanner);
+                    System.out.println("Lets get started..");
                 } else if (choice == 0) {
                     System.out.println("Tell your friends about us!");
                     break;
@@ -70,8 +110,8 @@ public class HomeScreen {
         else if (drinkChoice == 5)
             pick = "H20";
         return pick;
-
     }
+
 
 }
 
