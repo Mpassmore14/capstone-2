@@ -9,15 +9,48 @@ public class HomeScreen {
 
 
     public static void main(String[] args) {
+                        System.out.println("==Welcome in!=="); //button layout
+                System.out.println("1) New Order");
+                System.out.println("0) Exit");
+                System.out.println("Lets get your order going. Select one for me: ");
+                // allows user to put a number
+                int choice = myScanner.nextInt();
+
+                if (choice == 1) {
+                    System.out.println("Lets get started..");
+                    orderScreen();
+
+                } else if (choice == 0) {
+                    System.out.println("Tell your friends about us!");
+                } else
+                    System.out.println("My apologies I didnt understand your input. Try again");
+
+
+
+        }
+
+
+
+
+
+
+
+
+    public static void orderScreen(){
         addChips();
         addDrink();
         addSandwich();
+        checkout();
 
 
-//        order
-        System.out.println(chipOrder.size());
-        System.out.println(drinkOrder.size());
+    }
+    public static void checkout(){
 
+        System.out.println("let me get a name");
+        String customerName = myScanner.nextLine();
+        Order order = new Order(customerName,drinkOrder,chipOrder,sandwichOrder);
+        order.printReceipt();
+        order.saveReceipt();
     }
 
     public static void addSandwich() {
@@ -47,8 +80,12 @@ public class HomeScreen {
                 sandwich.setBread("Rye");
             } else if (breadChoice.equals("4")) {
                 sandwich.setBread("Wrap");
-
             }
+            System.out.println("Toasted? Y/N");
+            String isToasted = myScanner.nextLine();
+            if (isToasted.equalsIgnoreCase("y"))
+                System.out.println("Toasty");
+
             System.out.println("1)Steak, 2)Ham, 3)Salami, 4)Roast Beef, 5)Chicken, 6)Bacon");
             System.out.println("What type of meat would you like?");
             String meatChoice = myScanner.nextLine();
@@ -64,6 +101,11 @@ public class HomeScreen {
                 sandwich.setMeat("Chicken");
             } else if (meatChoice.equals("6")) {
                 sandwich.setMeat("Bacon");
+            }
+            System.out.println("Would you like extra meat? Y/N");
+            String extraMeat = myScanner.nextLine();
+            if (extraMeat.equalsIgnoreCase("Y")) {
+                sandwich.setExtraMeat(true);
             }
 
             System.out.println("How bout some cheese? Y/N");
@@ -81,54 +123,63 @@ public class HomeScreen {
                 } else if (cheeseType.equals("4")) {
                     sandwich.setCheese("Swiss");
                 }
-                System.out.println("1)Lettuce, 2)Peppers, 3) Onions, 4) Tomatoes, 5)Jalapenos, 6)Cucumbers, 7)Pickles, 8)Guac, 9)Mushrooms");
-                System.out.println("What toppings would you like? ");
-                String toppingType = myScanner.nextLine();
-                if (toppingType.equals("1"))
-                    sandwich.setToppings("Lettuce");
-                else if (toppingType.equals("2")) {
-                    sandwich.setToppings("Peppers");
-                } else if (toppingType.equals("3")) {
-                    sandwich.setToppings("Onions");
-                } else if (toppingType.equals("4")) {
-                    sandwich.setToppings("Tomatoes");
-                } else if (toppingType.equals("5")) {
-                    sandwich.setToppings("Jalapenos");
-                } else if (toppingType.equals("6")) {
-                    sandwich.setToppings("Cucumbers");
-                } else if (toppingType.equals("7")) {
-                    sandwich.setToppings("Pickles");
-                } else if (toppingType.equals("8")) {
-                    sandwich.setToppings("Guac");
-                } else if (toppingType.equals("9")) {
-                    sandwich.setToppings("Mushrooms");
-                }
-                System.out.println("Gettin' SAUCY with it? Y/n");
-                String sauceChoice = myScanner.nextLine();
-                if (sauceChoice.equalsIgnoreCase("y")){
+            }
+            System.out.println("Would you like extra cheese? Y/N");
+            String extraCheese = myScanner.nextLine();
+            if (extraCheese.equalsIgnoreCase("Y")) {
+                sandwich.setExtraCheese(true);
+            }
+            System.out.println("1)Lettuce, 2)Peppers, 3) Onions, 4) Tomatoes, 5)Jalapenos, 6)Cucumbers, 7)Pickles, 8)Guac, 9)Mushrooms");
+            System.out.println("What toppings would you like? ");
+            String toppingType = myScanner.nextLine();
+            if (toppingType.equals("1")) {
+                sandwich.setToppings("Lettuce");
+            } else if (toppingType.equals("2")) {
+                sandwich.setToppings("Peppers");
+            } else if (toppingType.equals("3")) {
+                sandwich.setToppings("Onions");
+            } else if (toppingType.equals("4")) {
+                sandwich.setToppings("Tomatoes");
+            } else if (toppingType.equals("5")) {
+                sandwich.setToppings("Jalapenos");
+            } else if (toppingType.equals("6")) {
+                sandwich.setToppings("Cucumbers");
+            } else if (toppingType.equals("7")) {
+                sandwich.setToppings("Pickles");
+            } else if (toppingType.equals("8")) {
+                sandwich.setToppings("Guac");
+            } else if (toppingType.equals("9")) {
+                sandwich.setToppings("Mushrooms");
+            }
+            System.out.println("Gettin' SAUCY with it? Y/n");
+            String sauceChoice = myScanner.nextLine();
+            if (sauceChoice.equalsIgnoreCase("y")) {
                 System.out.println("1)Mayo, 2)Mustard, 3)Ketchup, 4)Ranch, 5)Thousand Island, 6)Vinaigrette");
-                    System.out.println("What kind of sauce?");
-                    String sauceType = myScanner.nextLine();
-                    if (sauceType.equals("1")){
-                        sandwich.setSauces("Mayo");
-                    } else if (sauceType.equals("2")) {
-                        sandwich.setSauces("Mustard");
-                    } else if (sauceType.equals("3")) {
-                        sandwich.setSauces("Ketchup");
-                    } else if (sauceType.equals("4")) {
-                        sandwich.setSauces("Thousand Island");
-                    } else if (sauceType.equals("5")) {
-                        sandwich.setSauces("Vinaigrette");
-                    }
-
+                System.out.println("What kind of sauce?");
+                String sauceType = myScanner.nextLine();
+                if (sauceType.equals("1")) {
+                    sandwich.setSauces("Mayo");
+                } else if (sauceType.equals("2")) {
+                    sandwich.setSauces("Mustard");
+                } else if (sauceType.equals("3")) {
+                    sandwich.setSauces("Ketchup");
+                } else if (sauceType.equals("4")) {
+                    sandwich.setSauces("Thousand Island");
+                } else if (sauceType.equals("5")) {
+                    sandwich.setSauces("Vinaigrette");
                 }
 
             }
 
+        }
 
-        } // Stay inside this bracket
+
+        // Stay inside this bracket
         sandwichOrder.add(sandwich);
-//        System.out.println(sandwich.);
+        System.out.printf("Bread: %s | Meat: %s | Cheese: %s | Topping: %s | Sauce: %s | Toasted: %b | Extra meat : %b | Extra Cheese : %b \n",
+                sandwich.getBread(), sandwich.getMeat(), sandwich.getCheese(), sandwich.getToppings(), sandwich.getSauces(),
+                sandwich.isToasted(), sandwich.isExtraMeat(), sandwich.isExtraCheese());
+        System.out.println(sandwich.getPrice());
     }
 
     public static void addDrink() {
@@ -167,28 +218,6 @@ public class HomeScreen {
         System.out.println(drink.getPrice());
 
 
-//        System.out.println("\n==Wash it down ==");
-//        System.out.println("1) Carbonated sugar water");
-//        System.out.println("2)Warm milk");
-//        System.out.println("3) Minty orange juice");
-//        System.out.println("4) room temp Tea");
-//        System.out.println("5) H20");
-//        System.out.println("the H20 is faucet water so... choose wisely: ");
-//
-//        int drinkChoice = myScanner.nextInt();
-//        myScanner.nextLine();
-//        String pick = "idk";
-//        if (drinkChoice == 1)
-//            pick = "Carbonated sugar water";
-//        else if (drinkChoice == 2)
-//            pick = "Warm milk";
-//        else if (drinkChoice == 3)
-//            pick = "Minty orange juice";
-//        else if (drinkChoice == 4)
-//            pick = "room temp tea";
-//        else if (drinkChoice == 5)
-//            pick = "H20";
-//        return pick;
     }
 
     public static void addChips() {
@@ -205,88 +234,7 @@ public class HomeScreen {
 
     }
 
-    public static void placeHolder() {
-        Scanner scanner = new Scanner(System.in);
-        ArrayList<String> meats = new ArrayList<>();
-        meats.add("Steak");
-        meats.add("Ham");
-        meats.add("Salami");
-        meats.add("Roast Beef");
-        meats.add("Chicken");
-        meats.add("Bacon");
-        System.out.println("Which meat would you like?: ");
-
-        ArrayList<String> cheeses = new ArrayList<>();
-        cheeses.add("American");
-        cheeses.add("Provolone");
-        cheeses.add("Cheddar");
-        cheeses.add("Swiss");
-        System.out.println("Pick a cheese: ");
-
-        ArrayList<String> veggies = new ArrayList<>();
-        veggies.add("Lettuce");
-        veggies.add("Peppers");
-        veggies.add("Onion");
-        veggies.add("Tomatoes");
-        veggies.add("Jalapenos");
-        veggies.add("Cucumbers");
-        veggies.add("Pickles");
-        veggies.add("Guac");
-        veggies.add("Mushrooms");
-        System.out.println("Any Veggies?: ");
-
-        ArrayList<String> sauces = new ArrayList<>();
-        sauces.add("Mayo");
-        sauces.add("Mustard");
-        sauces.add("Ketchup");
-        sauces.add("Ranch");
-        sauces.add("thousand islands");
-        sauces.add("Vinaigrette");
-        System.out.println("Any Sauces?: ");
-        Order order = new Order();
-        Drink drink = new Drink("H20", Size.MEDIUM);
-        Sandwich sandwich = new Sandwich(Size.MEDIUM, "white");
-        Size size = sandwich.getSize();
-        if (size != null) {
-            double breadPrice;
-            switch (size) { // use switch or if statement
-                case SMALL -> breadPrice = 5.50;
-                case MEDIUM -> breadPrice = 7;
-                case LARGE -> breadPrice = 8.50;
-
-                default -> {
-                    System.out.println("Try again bud ");
-                    return;
-                }
-
-            }
-            System.out.println(size + " -" + breadPrice);
-
-
-            while (true) {
-
-                System.out.println("==Welcome in!=="); //button layout
-                System.out.println("1) New Order");
-                System.out.println("0) Exit");
-                System.out.println("Lets get your order going. Select one for me: ");
-                // allows user to put a number
-                int choice = scanner.nextInt();
-
-                if (choice == 1) {
-                    System.out.println("Lets get started..");
-                } else if (choice == 0) {
-                    System.out.println("Tell your friends about us!");
-                    break;
-                } else
-                    System.out.println("My apologies I didnt understand your input. Try again");
-            }
-            scanner.close();
-        }
-
-
-    }
 }
-
 
 
 

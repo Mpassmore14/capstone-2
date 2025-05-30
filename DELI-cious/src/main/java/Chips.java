@@ -1,6 +1,5 @@
 public class Chips {
-    //select type of chips
-//    String chips;
+
 
     public Chips() {
     }

@@ -10,6 +10,8 @@ public class Sandwich {
     private String sauces;
     private boolean isExtraMeat;
     private boolean isExtraCheese;
+    private boolean hasMeat;
+    private boolean hasCheese;
 
     public Sandwich(Size size, String bread) {
         this.size = size;
@@ -28,12 +30,20 @@ public class Sandwich {
         this.meat = meat;
     }
 
+    public boolean isHasMeat() {
+        return this.meat != null;
+    }
+
     public String getCheese() {
         return cheese;
     }
 
     public void setCheese(String cheese) {
         this.cheese = cheese;
+    }
+
+    public boolean isHasCheese() {
+        return this.cheese != null;
     }
 
     public String getToppings() {
@@ -59,10 +69,7 @@ public class Sandwich {
     public void setExtraMeat(boolean extraMeat) {
         isExtraMeat = extraMeat;
     }
-//    public ArrayList<String> meats = new ArrayList<>();
-//    public ArrayList<String> cheeses = new ArrayList<>();
-//    public ArrayList<String> veggies = new ArrayList<>();
-//    public ArrayList<String> sauces = new ArrayList<>();
+
 
     public boolean isExtraCheese() {
         return isExtraCheese;
@@ -71,22 +78,6 @@ public class Sandwich {
     public void setExtraCheese(boolean extraCheese) {
         isExtraCheese = extraCheese;
     }
-//
-//    private void addMeat(String meat) {
-//        meats.add(meat);
-//    }
-//
-//    private void addCheese(String cheese) {
-//        cheeses.add(cheese);
-//    }
-//
-//    private void addVeggies(String veggie) {
-//        veggies.add(veggie);
-//    }
-//
-//    private void addSauces(String sauce) {
-//        sauces.add(sauce);
-//    }
 
 
     public boolean isToasted() {
@@ -113,51 +104,57 @@ public class Sandwich {
         this.bread = bread;
     }
 
+    public double getPrice() {
+        double price = 0;
+        switch (this.size) {
+            case SMALL -> {
+                price = 5.50;
+                if (this.isHasMeat()) {
+                    price += 1.00;
+                }
+                if (this.isHasCheese()) {
+                    price += .75;
+                }
+                if (this.isExtraMeat) {
+                    price += .50;
+                }
+                if (this.isExtraCheese) {
+                    price += .30;
+                }
+            }
+            case MEDIUM -> {
+                price = 7.00;
+                if (this.isHasMeat()) {
+                    price += 2.00;
+                }
+                if (this.isHasCheese()) {
+                    price += 1.50;
+                }
+                if (this.isExtraMeat) {
+                    price += 1.00;
+                }
+                if (this.isExtraCheese) {
+                    price += .60;
+                }
+            }
+            case LARGE -> {
+                price = 8.50;
+                if (this.isHasMeat()) {
+                    price += 3.00;
+                }
+                if (this.isHasCheese()) {
+                    price += 2.25;
+                }
+                if (this.isExtraMeat) {
+                    price += 1.50;
+                }
+                if (this.isExtraCheese) {
+                    price += .90;
+                }
 
-//    public double getMeatPrice() {
-//        double pricerPerMeat = 0;
-//        switch (size) {
-//            case SMALL -> pricerPerMeat = 1.00;
-//            case MEDIUM -> pricerPerMeat = 2.00;
-//            case LARGE -> pricerPerMeat = 3.00;
-//        }
-//        return meats.size() + pricerPerMeat;
-//    }
-//
-//    public double getCheesePrice() {
-//        double pricePerCheese = 0;
-//        switch (size) {
-//            case SMALL -> pricePerCheese = .75;
-//            case MEDIUM -> pricePerCheese = 1.50;
-//            case LARGE -> pricePerCheese = 2.25;
-//        }
-//        return cheeses.size() + pricePerCheese;
-//    }
-//
-//    public double breadPrice() {
-//
-//        double priceOfBread = 0;
-//        switch (size) { // use switch or if statement
-//            case SMALL -> priceOfBread = 5.50;
-//            case MEDIUM -> priceOfBread = 7;
-//            case LARGE -> priceOfBread = 8.50;
-//
-//        }
-//        return priceOfBread;
-//
-//
-////    }
-//
-//
-//    public double getTotalSandwichPrice() {
-//        return getCheesePrice() + getMeatPrice() + breadPrice();
-//    }
-//
-//    @Override
-//    public String toString() {
-//        return size + " " + bread + "Sandwich with " + meats + ", " + cheeses + ", " + veggies + ", " + sauces;
-//
-//
-//    }
+            }
+        } return price;
+    }
+
 
 }
