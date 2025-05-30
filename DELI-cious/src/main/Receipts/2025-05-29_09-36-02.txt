@@ -1,0 +1,7 @@
+Drink|Size: LARGE |Price:$ 3.0
+
+Chips | price: $1.5
+
+Sandwich | Bread: Rye | Meat: Bacon | Cheese: null | Toppings: Peppers | Sauces: Thousand Island | Toasted: false Extra meat: false Extra cheese: false | Price: $6.5
+
+Total is : 11.0

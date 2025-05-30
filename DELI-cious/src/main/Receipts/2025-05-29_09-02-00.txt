@@ -1,0 +1,7 @@
+Drink|Size: MEDIUM |Price:$ 2.5
+
+Chips | price: $1.5
+
+Sandwich | Bread: Wrap | Meat: Steak | Cheese: American | Toppings: Lettuce | Sauces: Thousand Island | Toasted: false Extra meat: true Extra cheese: true | Price: $16.15
+
+Total is : 20.15

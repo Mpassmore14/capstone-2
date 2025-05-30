@@ -1,0 +1,5 @@
+Drink|Size: LARGE |Price:$ 3.0
+
+Sandwich | Bread: Rye | Meat: Salami | Cheese: Provolone | Toppings: Pickles | Sauces: null | Toasted: false Extra meat: true Extra cheese: true | Price: $16.15
+
+Total is : 19.15

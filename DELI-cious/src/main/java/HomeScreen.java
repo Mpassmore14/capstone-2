@@ -15,6 +15,7 @@ public class HomeScreen {
                 System.out.println("Lets get your order going. Select one for me: ");
                 // allows user to put a number
                 int choice = myScanner.nextInt();
+                myScanner.nextLine();
 
                 if (choice == 1) {
                     System.out.println("Lets get started..");
@@ -186,11 +187,11 @@ public class HomeScreen {
         Drink drink = new Drink();
         System.out.println("Would you like a Drink? (Y/N)");
 
-        String drinkChoice = myScanner.nextLine();
+        String drinkChoice = myScanner.nextLine().trim();
         if (drinkChoice.equalsIgnoreCase("y")) {
             System.out.println("1) Small, 2) Medium, 3)Large");
             System.out.println("What size would you like? ");
-            String sizeChoice = myScanner.nextLine();
+            String sizeChoice = myScanner.nextLine().trim();
             if (sizeChoice.equals("1")) {
                 drink.setSize(Size.SMALL);
             } else if (sizeChoice.equals("2")) {
@@ -200,7 +201,7 @@ public class HomeScreen {
             }
             System.out.println("1) Carbonated sugar water, 2) Warm Milk, 3) Minty OJ, 4) Room Temp Tea, 5) H20");
             System.out.println("The H20 is faucet water ... so choose wisely: ");
-            String drinkType = myScanner.nextLine();
+            String drinkType = myScanner.nextLine().trim();
             if (drinkType.equals("1"))
                 drink.setDrinkName("Carbonated sugar water");
             else if (drinkType.equals("2")) {
@@ -223,8 +224,8 @@ public class HomeScreen {
     public static void addChips() {
         Chips chips = new Chips();
         System.out.println("Chips to go with it? (Y/N)");
+        String chipChoice =myScanner.nextLine().trim();
 
-        String chipChoice = myScanner.nextLine();
         if (chipChoice.equalsIgnoreCase("Y")) {
             chipOrder.add(chips);
 
